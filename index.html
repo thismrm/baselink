@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"
+    />
+    <title>Baselink</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --color-background: #252525;
+        --color-primary: #f478b3;
+        --color-foreground: #3b3b3b;
+
+        --fs-big: 20rem;
+        --fs-small: 16rem;
+      }
+
+      html {
+        font-size: 1px;
+      }
+
+      body {
+        background-color: var(--color-background);
+        font-family: "Lexend", sans-serif;
+        color: white;
+      }
+
+      h1 {
+        font-size: 44rem;
+        margin-top: 55rem;
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
+        font-size: 16rem;
+        margin-bottom: 120rem;
+      }
+
+      a {
+        display: inline-block;
+        font-size: var(--fs-big);
+        padding: 16rem;
+        background-color: #f478b3;
+        line-height: 1;
+        text-decoration: none;
+        color: white;
+        border-radius: 12rem;
+      }
+
+      label {
+        font-size: 14rem;
+        display: block;
+        margin-bottom: 8rem;
+      }
+
+      main {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      input[type="text"] {
+        color: white;
+        background-color: var(--color-foreground);
+        border: none;
+        font-size: 16rem;
+        padding: 12rem 16rem;
+        font-family: "Lexend", sans-serif;
+      }
+
+      button {
+        font-size: 16rem;
+        border: none;
+        padding: 14rem 64rem;
+        font-family: "Lexend", sans-serif;
+        cursor: pointer;
+      }
+
+      .words,
+      .link {
+        margin-top: 96rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .link {
+        margin-top: 16rem;
+      }
+
+      .button {
+        display: flex;
+        justify-content: center;
+        margin-top: 44rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Baselink</h1>
+    <p>
+      Generate your embedded link code<br />
+      ~ app by @selamatpagiamir
+    </p>
+    <main>
+      <div
+        style="display: flex; justify-content: center"
+        class="button-container"
+      >
+        <a href="#" target="_blank">☕ Buy me a coffee</a>
+      </div>
+      <div class="words">
+        <div class="words-container">
+          <label for="words">Words</label>
+          <input type="text" id="words" value="🚀 Deploy on deta.sh" />
+        </div>
+      </div>
+      <div class="link">
+        <div class="link-container">
+          <label for="words">Link</label>
+          <input type="text" id="links" value="https://www.deta.sh/" />
+        </div>
+      </div>
+    </main>
+    <div class="button">
+      <div class="button-container">
+        <button>Generate</button>
+      </div>
+    </div>
+    <div style="position: fixed; bottom: 24px; right: 24px">
+      <a href="https://www.deta.sh/" target="_blank">🚀 Live example here!</a>
+    </div>
+  </body>
+  <script>
+    const link = document.querySelector("a");
+    const button = document.querySelector("button");
+    button.addEventListener("click", function (e) {
+      link.textContent = words.value;
+      link.href = links.value;
+
+      // link container
+      const div = document.createElement("div");
+      div.style.position = "fixed";
+      div.style.bottom = "24px";
+      div.style.right = "24px";
+
+      // link element
+      const a = document.createElement("a");
+      a.textContent = words.value;
+      a.href = links.value;
+      a.target = "_blank";
+      div.append(a);
+
+      setTimeout(() => {
+        button.textContent = "Generate";
+      }, 1500);
+
+      button.textContent = "Copied to clipboard";
+
+      navigator.clipboard.writeText(div.outerHTML);
+    });
+  </script>
+</html>
