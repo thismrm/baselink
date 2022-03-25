@@ -51,6 +51,14 @@
       }
 
       a {
+        display: inline-block;
+        font-size: var(--fs-big);
+        padding: 16rem;
+        background-color: #f478b3;
+        line-height: 1;
+        text-decoration: none;
+        color: white;
+        border-radius: 12rem;
       }
 
       label {
@@ -111,21 +119,7 @@
         style="display: flex; justify-content: center"
         class="button-container"
       >
-        <a
-          href="#"
-          style="
-            display: inline-block;
-            font-size: var(--fs-big);
-            padding: 16rem;
-            background-color: #f478b3;
-            line-height: 1;
-            text-decoration: none;
-            color: white;
-            border-radius: 12rem;
-          "
-          target="_blank"
-          >☕ Buy me a coffee</a
-        >
+        <a href="#" target="_blank">☕ Buy me a coffee</a>
       </div>
       <div class="words">
         <div class="words-container">
@@ -167,6 +161,17 @@
       a.textContent = words.value;
       a.href = links.value;
       a.target = "_blank";
+
+      // link style
+      a.style.display = "inline-block";
+      a.style.fontSize = "20px";
+      a.style.padding = "16px";
+      a.style.backgroundColor = "#f478b3";
+      a.style.lineHeight = "1";
+      a.style.textDecoration = "none";
+      a.style.color = "white";
+      a.style.borderRadius = "12px";
+
       div.append(a);
 
       setTimeout(() => {
